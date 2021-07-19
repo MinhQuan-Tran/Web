@@ -202,7 +202,10 @@ function UpdateShoppingCart() {
         let li = document.createElement("li");
         li.innerHTML = result.message;
         document.getElementById("shoppingCart").appendChild(li);
-        document.getElementById("totalPrice").innerHTML = 0;
+        document.getElementById("totalPrice").innerHTML = new Intl.NumberFormat(
+          "vi-VN",
+          { style: "currency", currency: "VND" }
+        ).format(0);
         return;
       }
       let items = result.data.items;
@@ -247,7 +250,10 @@ function UpdateShoppingCart() {
 
         document.getElementById("shoppingCart").appendChild(li);
       }
-      document.getElementById("totalPrice").innerHTML = result.data.total;
+      document.getElementById("totalPrice").innerHTML = new Intl.NumberFormat(
+        "vi-VN",
+        { style: "currency", currency: "VND" }
+      ).format(result.data.total);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -433,7 +439,10 @@ function AddProduct(products) {
 
     let spanPrice = document.createElement("span");
     spanPrice.className = "content-item-price";
-    spanPrice.innerHTML = product.price + "đ";
+    spanPrice.innerHTML = new Intl.NumberFormat("vi-VN", {
+      style: "currency",
+      currency: "VND",
+    }).format(product.price);
 
     divInfo.appendChild(spanName);
     divInfo.appendChild(spanPrice);
