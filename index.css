@@ -24,6 +24,9 @@ header {
   width: 100%;
   margin: 0;
   z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 * {
@@ -68,7 +71,7 @@ ul {
   height: 50px;
   padding-top: 3px;
   padding-bottom: 3px;
-  width: 100%;
+  width: 98%;
   margin: 0%;
   display: flex;
   flex-direction: row;
@@ -90,6 +93,24 @@ ul {
   to {
     background-position: calc(100vw - 16px);
   }
+}
+
+.start {
+  height: 65%;
+  width: 15%;
+}
+
+.homeButton {
+  height: 100%;
+  background-color: #404040;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+}
+
+.homeButton h3 {
+  margin: 0;
 }
 
 .center {
@@ -126,7 +147,7 @@ ul {
 
 .user {
   height: 300px;
-  width: 90%;
+  width: 100%;
   background-color: #404040;
   border-radius: 10px;
   display: flex;
