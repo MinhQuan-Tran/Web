@@ -346,19 +346,31 @@ function ShowProduct(foodid) {
       }
       let product = result.data;
       document.getElementById("product-name").innerHTML = product.foodName;
-      RemoveChild("product-images");
-      let i = -1;
-      console.log(product);
-      while (product.images[++i] != null && i < 3) {
-        let img = document.createElement("img");
-        img.src = product.images[i].imageUrl;
-        document.getElementById("product-images").appendChild(img);
-      }
+      images = product.images;
+      currentImageNo = 0;
+      ChangePopupImage(0);
+      document.getElementById("product-price").innerHTML =
+        new Intl.NumberFormat("vi-VN", {
+          style: "currency",
+          currency: "VND",
+        }).format(product.price);
       document
         .getElementById("buy-button")
         .setAttribute("onclick", `Add2Cart('${product.foodId}')`);
       ChangePopupState("flex");
     });
+}
+
+var images = [];
+var currentImageNo;
+function ChangePopupImage(numToChange) {
+  currentImageNo += numToChange;
+  if (currentImageNo < 0) currentImageNo = images.length - 1;
+  if (currentImageNo > images.length - 1) currentImageNo = 0;
+  let img = document.createElement("img");
+  img.src = images[currentImageNo].imageUrl;
+  let parent = document.getElementById("product-image");
+  parent.replaceChild(img, parent.childNodes[3]);
 }
 
 function ChangePopupState(state) {

@@ -74,11 +74,18 @@
   <div class="popup" id="popup">
     <div class="product-screen-background" onclick="ChangePopupState('none')"></div>
     <div class="product-screen">
-      <div class="product-info">
-        <h2 id="product-name" class="text-black">Test</h2>
+      <div class="product-screen-header">
+        <h2 id="product-name" class="text-black"></h2>
+        <h2 id="product-price" class="text-black"></h2>
         <div class="buy-button pointer" id="buy-button">Buy</div>
       </div>
-      <div id="product-images"></div>
+      <div class="product-screen-body">
+        <div id="product-image">
+          <div class="image-button pointer" onclick="ChangePopupImage(-1)"> < </div>
+          <img>
+          <div class="image-button pointer" onclick="ChangePopupImage(-1)"> > </div>
+        </div>
+      </div>
     </div>
   </div>
 </body>
