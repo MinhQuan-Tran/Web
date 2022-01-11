@@ -73,6 +73,7 @@ ul {
   padding-bottom: 3px;
   width: 98%;
   margin: 0%;
+  z-index: 4;
   display: flex;
   flex-direction: row;
   align-items: center;
